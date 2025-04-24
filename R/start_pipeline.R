@@ -28,12 +28,12 @@ start_pipeline <- function(from = Sys.Date() - 7, to = Sys.Date(), batch_size = 
 	message("Starting pipeline...")
 	# 5. Loop over batches
 	for (batch_id in seq_along(batches)) {
-		batch <- batches[[batch_id]]
-		symbols_in_batch <- batch$symbol
+		batch <- batches[[batch_id]] # the current batch
+		symbols_in_batch <- batch$symbol # a list of symbols from the current batch
 		message(glue::glue("Processing batch {batch_id}/{length(batches)}: {paste(symbols_in_batch, collapse = ', ')}"))
 		tryCatch({
 			# 5.1 Query Yahoo Finance
-			new_data <- yahoo_query_data(batch, from = from, to = to)
+			new_data <- yahoo_query_data(symbols_in_batch, from = from, to = to)
 			if (is.null(new_data) || nrow(new_data) == 0) {
 				stop("No data returned from Yahoo Finance API.")
 			}

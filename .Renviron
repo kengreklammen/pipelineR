@@ -1,0 +1,6 @@
+PG_DB = "postgres"
+PG_HOST = "dlh.cerk0ko48rck.us-east-1.rds.amazonaws.com"
+PG_USER = "arpad"
+PG_PASSWORD = "BplS2upFkFcD"
+PG_SCHEMA = "student_arpad"
+user_login = "arpad"
