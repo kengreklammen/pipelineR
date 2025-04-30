@@ -1,0 +1,16 @@
+---
+title: "Log report on the pipelineR"
+output: html_document
+params:
+  te: NA
+  tf: NA
+  ts: NA
+---
+
+```{r, echo=FALSE, message=TRUE, warning=TRUE}
+
+cat("Total_number_of_executions: ", params$te, "\n")
+cat("Failed executions: ", params$tf, "\n")
+cat("Total_number_of_executions: ", params$ts, "\n")
+
+

@@ -18,5 +18,5 @@ fetch_symbols <- function(con){
 	sql <- glue::glue_sql("select * from info;", .con = con)
 	DBI::dbExecute(con, "SET search_path TO sp500")
 	df <- DBI::dbGetQuery(con, sql)
-	return(df)
+	return(tibble::as_tibble(df))
 }

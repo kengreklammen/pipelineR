@@ -1,5 +1,3 @@
-library(tidyquant)
-
 #' Returns a data frame that contains stock data for the requested tickers in the given date window.
 #'
 #' @param symbols A list of stock symbols.
@@ -13,7 +11,8 @@ library(tidyquant)
 #' \dontrun{
 #' yahoo_query_data(c("AAPL", "A", "CNP", "CRL"), "2015-01-02", "2015-01-04")
 #' }
+#' @importFrom dplyr %>%
 yahoo_query_data <- function(symbols, from, to){
-	data <- tq_get(symbols) %>% subset(date >= from & date <= to)
+	data <- tidyquant::tq_get(symbols) %>% subset(date >= from & date <= to)
 	return(data)
 	}
